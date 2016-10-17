@@ -1,0 +1,22 @@
+{
+  "name": "black-lamp/blcms-sms-mobizone",
+  "description": "Component for working with Mobizone SMS service",
+  "keywords": ["yii2", "sms", "blcms", "mobizone"],
+  "type": "yii2-extension",
+  "authors": [
+    {
+      "name": "Albert Gainutdinov",
+      "email": "xalbert.einsteinx@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": ">=2.0.4",
+    "yiisoft/yii2-bootstrap": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "bl\\cms\\sms\\": ""
+    }
+  }
+}
