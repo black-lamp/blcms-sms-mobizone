@@ -35,7 +35,7 @@ class SmsMobizoneComponent extends Component
      * @var string $defaultMessage
      * Text message.
      */
-    public $defaultMessage;
+    public $defaultMessage = '';
 
     /**
      * @var string $alphaName
