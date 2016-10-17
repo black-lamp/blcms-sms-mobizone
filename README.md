@@ -6,11 +6,11 @@ INSTALLATION
 
 Run command
 ```php
-    composer require black-lamp/yii2-socialshare
+    composer require black-lamp/blcms-sms-mobizone
 ```
 or add
 ```php
-    "black-lamp/yii2-socialshare": "*"
+    "black-lamp/blcms-sms-mobizone": "*",
 ```
 
 ### Configure component in your app
