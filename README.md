@@ -18,7 +18,7 @@ Example:
 ```php
     'components' => [
         'sms' => [
-                    'class' => 'bl\cms\sms\SmsMobizoneComponent',
+                    'class' => bl\cms\sms\SmsMobizoneComponent::className(),
         
                     'apiToken' => '00000000000000000000000000000000000000000',
                     'recipientPhoneNumber' => '380965550000',
