@@ -3,6 +3,16 @@ Yii2 component for use sms service by "Mobizone" API
 
 INSTALLATION
 ------------
+
+Run command
+```php
+    composer require black-lamp/yii2-socialshare
+```
+or add
+```php
+    "black-lamp/yii2-socialshare": "*"
+```
+
 ### Configure component in your app
 Example: 
 ```php
