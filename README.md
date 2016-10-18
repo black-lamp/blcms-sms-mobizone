@@ -1,5 +1,7 @@
 Yii2 component for use sms service by "Mobizon" API
 =======================================================
+This is unofficial component for use "Mobizon" API (https://mobizon.net.ua).
+It allows send single messages and check account balance.
 
 INSTALLATION
 ------------
