@@ -22,7 +22,7 @@ Example:
         
                     'apiToken' => '00000000000000000000000000000000000000000',
                     'recipientPhoneNumber' => '380965550000',
-                    'defaultMessage' => 'Default message',
+                    'smsText' => 'Default message',
                     'alphaName' => 'Name'
             ],
         ]
@@ -42,7 +42,14 @@ USING
 ------
 For sending one SMS:
 ```php
-    $messageId = Yii::$app->sms->send($recipient, $text, $alphaName);
+    $messageId = Yii::$app->sms->setSmsText('Some text')->send();
+```
+Also you ca use this set methods: 
+```php
+Yii::$app->sms->setApiToken(string $token);
+Yii::$app->sms->setRecipientPhoneNumber(string $recipientPhoneNumber);
+Yii::$app->sms->setSmsText(string $smsText);
+Yii::$app->sms->setAlphaName(string $alphaName);
 ```
 
 For get user account balance:

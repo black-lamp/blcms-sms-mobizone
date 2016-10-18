@@ -35,7 +35,7 @@ class SmsMobizoneComponent extends Component
      * @var string $defaultMessage
      * Text message.
      */
-    public $defaultMessage = '';
+    public $smsText = '';
 
     /**
      * @var string $alphaName
@@ -44,7 +44,7 @@ class SmsMobizoneComponent extends Component
      * on "My signatures" panel section.
      * This property can be empty.
      */
-    public $alphaName;
+    public $alphaName = '';
 
 
     private $apiServer = 'https://api.mobizon.com/service/';
@@ -103,28 +103,21 @@ class SmsMobizoneComponent extends Component
      * This method sends one SMS.
      * Returns message id.
      *
-     * @param string $recipient
-     * @param string $text
-     * @param string $alphaName
-     *
      * @return integer
      * @throws BadRequestHttpException
      * @throws Exception
      */
-    public function send($recipient = null, $text = null, $alphaName = null) {
+    public function send()
+    {
 
-        $recipient = (!empty($recipient)) ? $recipient : $this->recipientPhoneNumber;
-        $text = (!empty($text)) ? $text : $this->defaultMessage;
-        $alphaName = (!empty($alphaName)) ? $alphaName : $this->alphaName;
-
-        if (empty($recipient)) {
-            throw new BadRequestHttpException('Recipient phone number must be not empty');
+        if (empty($this->recipientPhoneNumber)) {
+            throw new BadRequestHttpException();
         }
 
         $data = [
-            'recipient' => $recipient,
-            'text' => $text,
-            'from' => $alphaName
+            'recipient' => $this->recipientPhoneNumber,
+            'text' => $this->smsText,
+            'from' => $this->alphaName
         ];
 
         $result = $this->callMethod('Message', 'SendSMSMessage', $data);
@@ -133,5 +126,57 @@ class SmsMobizoneComponent extends Component
             return $result['data']['messageId'];
         }
         else throw new Exception();
+    }
+
+    /**
+     * Sets API token
+     *
+     * @param string $token
+     * @throws BadRequestHttpException
+     */
+    public function setApiToken($token) {
+        if (!empty($token)) {
+            $this->apiToken = $token;
+        }
+        else throw new BadRequestHttpException();
+    }
+
+    /**
+     * Sets recipient phone number
+     *
+     * @param string $recipientPhoneNumber
+     * @throws BadRequestHttpException
+     */
+    public function setRecipientPhoneNumber($recipientPhoneNumber) {
+        if (!empty($recipientPhoneNumber)) {
+            $this->recipientPhoneNumber = $recipientPhoneNumber;
+        }
+        else throw new BadRequestHttpException();
+    }
+
+    /**
+     * Sets recipient phone number
+     *
+     * @param string $smsText
+     * @throws BadRequestHttpException
+     */
+    public function setSmsText($smsText) {
+        if (!empty($smsText)) {
+            $this->smsText = $smsText;
+        }
+        else throw new BadRequestHttpException();
+    }
+
+    /**
+     * Sets API token
+     *
+     * @param string $alphaName
+     * @throws BadRequestHttpException
+     */
+    public function setAlphaName($alphaName) {
+        if (!empty($alphaName)) {
+            $this->alphaName = $alphaName;
+        }
+        else throw new BadRequestHttpException();
     }
 }
