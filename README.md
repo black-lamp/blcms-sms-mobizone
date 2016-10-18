@@ -1,4 +1,4 @@
-Yii2 component for use sms service by "Mobizone" API
+Yii2 component for use sms service by "Mobizon" API
 =======================================================
 
 INSTALLATION
